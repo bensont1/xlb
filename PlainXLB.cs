@@ -7,6 +7,8 @@
         public override ItemStorage ItemStorageFlags => ItemStorage.StackableFood;
         public override ItemCategory ItemCategory => ItemCategory.Generic;
 
+        public override ItemValue ItemValue => ItemValue.ExtraLarge;
+
         public override void OnRegister(Item gdo)
         {
 

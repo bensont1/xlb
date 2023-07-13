@@ -13,7 +13,7 @@ namespace KitchenXLB.Mains
             new()
             {
                 Process = GetGDO<Process>(ProcessReferences.Knead),
-                Duration = 1.3f,
+                Duration = 0.3f,
                 Result = GetCastedGDO<Item, UncookedXLB>()
             }
         };

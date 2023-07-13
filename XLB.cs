@@ -33,7 +33,7 @@ namespace KitchenXLB.Mains
 
         public override void OnRegister(ItemGroup gdo)
         {
-            Prefab.TryAddComponent<View>().Setup(gdo);
+          /*  Prefab.TryAddComponent<View>().Setup(gdo);*/
 
             Prefab.ApplyMaterialToChildCafe("basket", "XLB - \"Basket\"");
             Prefab.ApplyMaterialToChildCafe("baos", "XLB - \"Bao\"");
@@ -46,7 +46,7 @@ namespace KitchenXLB.Mains
                 new()
                 {
                     Item = GetCastedGDO<Item, PlainXLB>(),
-                    GameObject = gameObject.GetChild("xlb")
+                    GameObject = gameObject.GetChild("xlb_crab")
                 }
             };
         }

@@ -3,7 +3,7 @@
     internal class PlatedXLB : CustomItemGroup<XLB.View>
     {
         public override string UniqueNameID => "plated_xlb";
-        public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("xlb");
+        public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("xlb_plated");
         public override ItemStorage ItemStorageFlags => ItemStorage.Small;
         public override ItemCategory ItemCategory => ItemCategory.Generic;
         public override ItemValue ItemValue => ItemValue.Medium;
@@ -38,10 +38,11 @@
 
         public override void OnRegister(ItemGroup gdo)
         {
-            Prefab.TryAddComponent<XLB.View>().Setup(gdo);
+         /*   Prefab.TryAddComponent<XLB.View>().Setup(gdo);*/
 
             Prefab.ApplyMaterialToChildCafe("basket", "XLB - \"Basket\"");
             Prefab.ApplyMaterialToChildCafe("baos", "XLB - \"Bao\"");
+            Prefab.ApplyMaterialToChildCafe("plate", "Plate", "Plate - Ring");
         }
     }
 }
