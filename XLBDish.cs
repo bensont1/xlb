@@ -7,7 +7,7 @@
         public override bool IsUnlockable => true;
         public override UnlockGroup UnlockGroup => UnlockGroup.Dish;
         public override CardType CardType => CardType.Default;
-        public override DishCustomerChange CustomerMultiplier => DishCustomerChange.None;
+        public override DishCustomerChange CustomerMultiplier => DishCustomerChange.SmallDecrease;
         public override int MinimumFranchiseTier => 0;
         public override bool IsSpecificFranchiseTier => false;
         public override float SelectionBias => 0;
@@ -19,7 +19,7 @@
         public override bool DestroyAfterModUninstall => false;
         public override Dictionary<Locale, string> Recipe => new()
         {
-            { Locale.English, "Knead flour, add chopped meat. Fold this once and then cook. Portion, plate, and then serve. Add sprinkles if ordered." }
+            { Locale.English, "Knead flour, add chopped meat and portioned soup. Fold once and then cook. Plate, and then serve." }
         };
         public override List<(Locale, UnlockInfo)> InfoList => new()
         {
@@ -27,6 +27,8 @@
         };
         public override HashSet<Process> RequiredProcesses => new()
         {
+            GetGDO<Process>(ProcessReferences.Chop),
+            GetGDO<Process>(ProcessReferences.Knead),
             GetGDO<Process>(ProcessReferences.Cook)
         };
         public override HashSet<Item> MinimumIngredients => new()

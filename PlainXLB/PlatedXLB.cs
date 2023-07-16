@@ -4,9 +4,9 @@
     {
         public override string UniqueNameID => "plated_xlb";
         public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("xlb_plated");
-        public override ItemStorage ItemStorageFlags => ItemStorage.Small;
+        public override ItemStorage ItemStorageFlags => ItemStorage.None;
         public override ItemCategory ItemCategory => ItemCategory.Generic;
-        public override ItemValue ItemValue => ItemValue.Medium;
+        public override ItemValue ItemValue => ItemValue.Large;
 
         public override bool CanContainSide => false;
         public override Item DisposesTo => GetGDO<Item>(ItemReferences.Plate);
@@ -17,7 +17,7 @@
             new()
             {
                 Item = GetCastedGDO<Item, PlainXLB>(),
-                Text = "Pl"
+                Text = "Xlb"
             },
         };
 
@@ -30,16 +30,14 @@
                 IsMandatory = true,
                 Items = new()
                 {
-                    GetCastedGDO<Item, XLB>(),
-                    GetGDO<Item>(ItemReferences.Plate)
+                    GetGDO<Item>(ItemReferences.Plate),
+                    GetCastedGDO<Item, XLB>()
                 }
             }
         };
 
         public override void OnRegister(ItemGroup gdo)
         {
-         /*   Prefab.TryAddComponent<XLB.View>().Setup(gdo);*/
-
             Prefab.ApplyMaterialToChildCafe("basket", "XLB - \"Basket\"");
             Prefab.ApplyMaterialToChildCafe("baos", "XLB - \"Bao\"");
             Prefab.ApplyMaterialToChildCafe("plate", "Plate", "Plate - Ring");

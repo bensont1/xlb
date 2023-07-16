@@ -1,10 +1,9 @@
-﻿
-namespace KitchenXLB.Mains
+﻿namespace KitchenXLB.Mains
 {
-    internal class XLB : CustomItemGroup<XLB.View>
+    internal class CrabXLB : CustomItemGroup<CrabXLB.View>
     {
-        public override string UniqueNameID => "xlb";
-        public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("xlb");
+        public override string UniqueNameID => "crab_xlb";
+        public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("crab_xlb");
         public override ItemStorage ItemStorageFlags => ItemStorage.StackableFood;
         public override ItemCategory ItemCategory => ItemCategory.Generic;
 
@@ -12,8 +11,8 @@ namespace KitchenXLB.Mains
         {
             new()
             {
-                Item = GetCastedGDO<Item, PlainXLB>(),
-                Text = "Pl"
+                Item = GetCastedGDO<Item, PlainCrabXLB>(),
+                Text = "Cr"
             }
         };
 
@@ -26,17 +25,17 @@ namespace KitchenXLB.Mains
                 IsMandatory = true,
                 Items = new()
                 {
-                    GetCastedGDO<Item, PlainXLB>()
+                    GetCastedGDO<Item, PlainCrabXLB>()
                 }
             }
         };
 
         public override void OnRegister(ItemGroup gdo)
         {
-          /*  Prefab.TryAddComponent<View>().Setup(gdo);*/
+            /*  Prefab.TryAddComponent<View>().Setup(gdo);*/
 
             Prefab.ApplyMaterialToChildCafe("basket", "XLB - \"Basket\"");
-            Prefab.ApplyMaterialToChildCafe("baos", "XLB - \"Bao\"");
+            Prefab.ApplyMaterialToChildCafe("baos", "Crab - Raw Shell");
         }
 
         public class View : AccessedItemGroupView
@@ -45,8 +44,8 @@ namespace KitchenXLB.Mains
             {
                 new()
                 {
-                    Item = GetCastedGDO<Item, PlainXLB>(),
-                    GameObject = gameObject.GetChild("xlb_crab")
+                    Item = GetCastedGDO<Item, PlainCrabXLB>(),
+                    GameObject = gameObject.GetChild("xlb")
                 }
             };
         }

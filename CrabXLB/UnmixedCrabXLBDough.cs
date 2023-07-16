@@ -2,10 +2,10 @@
 
 namespace KitchenXLB.Mains
 {
-    internal class UnmixedXLBDough : CustomItemGroup<UnmixedXLBDough.View>
+    internal class UnmixedCrabXLBDough : CustomItemGroup<UnmixedCrabXLBDough.View>
     {
-        public override string UniqueNameID => "unmixed_xlb_dough";
-        public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("xlb_open");
+        public override string UniqueNameID => "unmixed_crab_xlb_dough";
+        public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("crab_xlb_open");
         public override ItemStorage ItemStorageFlags => ItemStorage.Small;
         public override ItemCategory ItemCategory => ItemCategory.Generic;
         public override List<Item.ItemProcess> Processes => new()
@@ -14,7 +14,7 @@ namespace KitchenXLB.Mains
             {
                 Process = GetGDO<Process>(ProcessReferences.Knead),
                 Duration = 0.3f,
-                Result = GetCastedGDO<Item, UncookedXLB>()
+                Result = GetCastedGDO<Item, UncookedCrabXLB>()
             }
         };
 
@@ -22,15 +22,15 @@ namespace KitchenXLB.Mains
         {
             new()
             {
-                Item = GetGDO<Item>(ItemReferences.MeatChopped),
-                Text = "Mc"
+                Item = GetGDO<Item>(ItemReferences.CrabChopped),
+                Text = "Cc"
             },
             new()
             {
                 Item = GetGDO<Item>(ItemReferences.Dough),
-                Text = "Fl"
+                Text = "Do"
             },
-                 new()
+            new()
             {
                 Item = GetGDO<Item>(ItemReferences.ServedSoupMeat),
                 Text = "Sp"
@@ -43,24 +43,22 @@ namespace KitchenXLB.Mains
                 Items = new()
                 {
                     GetGDO<Item>(ItemReferences.Dough),
-
-
+                    
+                        
                 },
                 IsMandatory = true,
                 Max = 1,
                 Min = 1,
             },
-             new()
+            new()
             {
                 Items = new()
                 {
-
-                    GetGDO<Item>(ItemReferences.MeatChopped),
-                    GetGDO<Item>(ItemReferences.ServedSoupMeat),
-
+                    GetGDO<Item>(ItemReferences.CrabChopped),
+                    GetGDO<Item>(ItemReferences.ServedSoupMeat)
                 },
                 Max = 2,
-                Min = 2,
+                Min = 2
             }
         };
 
@@ -69,8 +67,8 @@ namespace KitchenXLB.Mains
             Prefab.TryAddComponent<View>().Setup(gdo);
 
             Prefab.ApplyMaterialToChild("DumplingsOpen", "Raw Pastry");
-            Prefab.ApplyMaterialToChildCafe("Meat - Chopped", "Raw", "Raw Fat");
-            Prefab.ApplyMaterialToChildCafe("Carrot - Chopped", "Carrot");
+            Prefab.ApplyMaterialToChildCafe("Meat - Chopped", "Crab - Raw Meat", "Crab - Raw Shell");
+            Prefab.ApplyMaterialToChildCafe("Carrot - Chopped", "Soup - Meat");
 
         }
 
@@ -81,7 +79,7 @@ namespace KitchenXLB.Mains
                 new()
                 {
                     GameObject = gameObject.GetChild("Meat - Chopped"),
-                    Item = GetGDO<Item>(ItemReferences.MeatChopped)
+                    Item = GetGDO<Item>(ItemReferences.CrabChopped)
                 },
                 new()
                 {
