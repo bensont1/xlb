@@ -6,6 +6,16 @@
         public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("xlb");
         public override ItemStorage ItemStorageFlags => ItemStorage.StackableFood;
         public override ItemCategory ItemCategory => ItemCategory.Generic;
+        public override List<Item.ItemProcess> Processes => new()
+        {
+            new()
+            {
+                Result = GetCastedGDO<Item, BurntXLB>(),
+                Duration = 15.0f,
+                IsBad = true,
+                Process = GetGDO<Process>(ProcessReferences.Cook)
+            }
+        };
 
         public override List<ItemGroupView.ColourBlindLabel> Labels => new()
         {
@@ -32,10 +42,8 @@
 
         public override void OnRegister(ItemGroup gdo)
         {
-            Prefab.TryAddComponent<View>().Setup(gdo);
-
-            Prefab.ApplyMaterialToChildCafe("basket", "XLB - \"Basket\"");
-            Prefab.ApplyMaterialToChildCafe("baos", "XLB - \"Bao\"");
+            Prefab.ApplyMaterialToChildGame("basket", "XLB - \"Basket\"");
+            Prefab.ApplyMaterialToChildGame("baos", "XLB - \"Bao\"");
         }
 
         public class View : AccessedItemGroupView
@@ -45,7 +53,7 @@
                 new()
                 {
                     Item = GetCastedGDO<Item, PlainXLB>(),
-                    GameObject = gameObject.GetChild("xlb_crab")
+                    GameObject = gameObject.GetChild("xlb")
                 }
             };
         }

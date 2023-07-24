@@ -9,7 +9,8 @@
         public override string ColourBlindTag => "Pl";
         public override void OnRegister(Item gdo)
         {
-
+            Prefab.ApplyMaterialToChildGame("basket", "XLB - \"Basket\"");
+            Prefab.ApplyMaterialToChildGame("baos", "XLB - \"Bao\"");
         }
     }
 }

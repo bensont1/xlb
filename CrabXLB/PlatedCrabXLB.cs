@@ -8,7 +8,7 @@
         public override ItemCategory ItemCategory => ItemCategory.Generic;
         public override ItemValue ItemValue => ItemValue.Large;
 
-        public override bool CanContainSide => false;
+        public override bool CanContainSide => true;
         public override Item DisposesTo => GetGDO<Item>(ItemReferences.Plate);
         public override Item DirtiesTo => GetGDO<Item>(ItemReferences.PlateDirty);
 
@@ -38,9 +38,9 @@
 
         public override void OnRegister(ItemGroup gdo)
         {
-            Prefab.ApplyMaterialToChildCafe("basket", "XLB - \"Basket\"");
-            Prefab.ApplyMaterialToChildCafe("baos", "Crab - Raw Shell");
-            Prefab.ApplyMaterialToChildCafe("plate", "Plate", "Plate - Ring");
+            Prefab.ApplyMaterialToChildGame("basket", "XLB - \"Basket\"");
+            Prefab.ApplyMaterialToChildGame("baos", "Crab - Raw Shell");
+            Prefab.ApplyMaterialToChildGame("plate", "Plate", "Plate - Ring");
         }
     }
 }

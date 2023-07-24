@@ -18,7 +18,7 @@ namespace KitchenXLB.Mains
         public override List<Unlock> HardcodedBlockers => new();
         public override Dictionary<Locale, string> Recipe => new()
         {
-            { Locale.English, "Knead flour, add chopped truffle (mushroom) and portioned soup. Fold once and then cook. Plate, and then serve." }        };
+            { Locale.English, "Knead flour (or add water) to create dough, add chopped truffle (mushroom) and portioned XLB soup (meat soup add ice). Fold once and then cook. Plate, and serve." }        };
         public override List<(Locale, UnlockInfo)> InfoList => new()
         {
             (Locale.English, LocalisationUtils.CreateUnlockInfo("Truffle XLB", "Adds Truffle XLB as a main dish", "Mushrooms ARE truffles!!"))

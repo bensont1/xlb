@@ -43,7 +43,7 @@ namespace KitchenXLB
         {
             ApplyMaterial<MeshRenderer>(gameObject, materials);
         }
-        public static void ApplyMaterialCafe(this GameObject gameObject, params string[] materials)
+        public static void ApplyMaterialGame(this GameObject gameObject, params string[] materials)
         {
             ApplyMaterial<MeshRenderer>(gameObject, GetMaterialArray(materials));
         }
@@ -71,11 +71,11 @@ namespace KitchenXLB
         {
             gameObject.GetChild(childName).ApplyMaterial<T>(materials);
         }
-        public static void ApplyMaterialToChildCafe(this GameObject gameObject, string childName, Material[] materials)
+        public static void ApplyMaterialToChildGame(this GameObject gameObject, string childName, Material[] materials)
         {
             gameObject.GetChild(childName).ApplyMaterial(materials);
         }
-        public static void ApplyMaterialToChildCafe(this GameObject gameObject, string childName, params string[] materials)
+        public static void ApplyMaterialToChildGame(this GameObject gameObject, string childName, params string[] materials)
         {
             Debug.Log($"[MY MOD] game object " + gameObject.GetChild(childName));
             Debug.Log($"[MY MOD] " + GetMaterialArray(materials));

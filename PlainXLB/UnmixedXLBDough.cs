@@ -32,7 +32,7 @@ namespace KitchenXLB.Mains
             },
                  new()
             {
-                Item = GetGDO<Item>(ItemReferences.ServedSoupMeat),
+                Item = GetCastedGDO<Item, PortionedXLBSoup>(),
                 Text = "Sp"
             }
         };
@@ -43,8 +43,6 @@ namespace KitchenXLB.Mains
                 Items = new()
                 {
                     GetGDO<Item>(ItemReferences.Dough),
-
-
                 },
                 IsMandatory = true,
                 Max = 1,
@@ -54,10 +52,8 @@ namespace KitchenXLB.Mains
             {
                 Items = new()
                 {
-
                     GetGDO<Item>(ItemReferences.MeatChopped),
-                    GetGDO<Item>(ItemReferences.ServedSoupMeat),
-
+                    GetCastedGDO<Item, PortionedXLBSoup>(),
                 },
                 Max = 2,
                 Min = 2,
@@ -69,8 +65,8 @@ namespace KitchenXLB.Mains
             Prefab.TryAddComponent<View>().Setup(gdo);
 
             Prefab.ApplyMaterialToChild("DumplingsOpen", "Raw Pastry");
-            Prefab.ApplyMaterialToChildCafe("Meat - Chopped", "Raw", "Raw Fat");
-            Prefab.ApplyMaterialToChildCafe("Carrot - Chopped", "Soup - Meat");
+            Prefab.ApplyMaterialToChildGame("Meat - Chopped", "Raw", "Raw Fat");
+            Prefab.ApplyMaterialToChildGame("Carrot - Chopped", "Soup");
 
         }
 
@@ -86,7 +82,7 @@ namespace KitchenXLB.Mains
                 new()
                 {
                     GameObject = gameObject.GetChild("Carrot - Chopped"),
-                    Item = GetGDO<Item>(ItemReferences.ServedSoupMeat)
+                    Item = GetCastedGDO<Item, PortionedXLBSoup>()
                 }
             };
         }

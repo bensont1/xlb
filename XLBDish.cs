@@ -1,4 +1,6 @@
-﻿namespace KitchenXLB.Mains
+﻿using IngredientLib.Ingredient.Items;
+
+namespace KitchenXLB.Mains
 {
     public class XLBDish : CustomDish
     {
@@ -19,7 +21,7 @@
         public override bool DestroyAfterModUninstall => false;
         public override Dictionary<Locale, string> Recipe => new()
         {
-            { Locale.English, "Knead flour, add chopped meat and portioned soup. Fold once and then cook. Plate, and then serve." }
+            { Locale.English, "Knead flour (or add water) to create dough, add chopped meat and portioned XLB soup (meat soup add ice). Fold once and then cook. Plate, and serve." }
         };
         public override List<(Locale, UnlockInfo)> InfoList => new()
         {
@@ -37,7 +39,8 @@
             GetGDO<Item>(ItemReferences.Flour),
             GetGDO<Item>(ItemReferences.Meat),
             GetGDO<Item>(ItemReferences.Pot),
-            GetGDO<Item>(ItemReferences.Onion)
+            GetGDO<Item>(ItemReferences.Onion),
+            GetCastedGDO<Item, Ice>()
         };
         public override List<string> StartingNameSet => new()
         {
@@ -63,8 +66,8 @@
 
         public override void OnRegister(Dish gdo)
         {
-            IconPrefab.ApplyMaterialToChildCafe("basket", "XLB - \"BasketDark\"");
-            IconPrefab.ApplyMaterialToChildCafe("baos", "XLB - \"BaoDark\"");
+            IconPrefab.ApplyMaterialToChildGame("basket", "XLB - \"BasketDark\"");
+            IconPrefab.ApplyMaterialToChildGame("baos", "XLB - \"BaoDark\"");
         }
     }
 

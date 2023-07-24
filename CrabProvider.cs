@@ -6,11 +6,11 @@
         public override string UniqueNameID => "crab_provider";
         public override List<(Locale, ApplianceInfo)> InfoList => new()
         {
-            (Locale.English, LocalisationUtils.CreateApplianceInfo("Crabs", "Fresh crabs", new()
+            (Locale.English, LocalisationUtils.CreateApplianceInfo("Crab", "Fresh crabs", new()
             {
                 new()
                 {
-                    Title = "Crabs",
+                    Title = "Crab",
                     Description = "Gives you fresh crabs"
                 }
             }, new()))
@@ -51,9 +51,9 @@
             Prefab.AddComponent<HoldPointContainer>().HoldPoint = Prefab.transform.Find("HoldPoint");
 
 
-            Prefab.ApplyMaterialToChildCafe("Cube", "Plastic - Blue");
+            Prefab.ApplyMaterialToChildGame("Cube", "Plastic - Blue");
 
-            Prefab.ApplyMaterialToChildCafe("Cube.001", "Metal Very Dark");
+            Prefab.ApplyMaterialToChildGame("Cube.001", "Metal Very Dark");
 
             Prefab.ApplyMaterialToChildren("Cube.002", "Ice");
             Prefab.ApplyMaterialToChildren("Cube.003", "Ice");
@@ -61,9 +61,9 @@
             Prefab.ApplyMaterialToChildren("Cube.005", "Ice");
             Prefab.ApplyMaterialToChildren("Cube.006", "Ice");
 
-            Prefab.ApplyMaterialToChildCafe("Crab - Raw.001", "Crab - Raw Shell");
-            Prefab.ApplyMaterialToChildCafe("Crab - Raw.002", "Crab - Raw Shell");
-            Prefab.ApplyMaterialToChildCafe("Crab - Raw.003", "Crab - Raw Shell");
+            Prefab.ApplyMaterialToChildGame("Crab - Raw.001", "Crab - Raw Shell");
+            Prefab.ApplyMaterialToChildGame("Crab - Raw.002", "Crab - Raw Shell");
+            Prefab.ApplyMaterialToChildGame("Crab - Raw.003", "Crab - Raw Shell");
         }
     }
 }

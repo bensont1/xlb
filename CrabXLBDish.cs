@@ -1,4 +1,5 @@
 ﻿using IngredientLib.Ingredient.Items;
+using KitchenXLB.Appliances;
 
 namespace KitchenXLB.Mains
 {
@@ -18,10 +19,10 @@ namespace KitchenXLB.Mains
         public override List<Unlock> HardcodedBlockers => new();
         public override Dictionary<Locale, string> Recipe => new()
         {
-            { Locale.English, "Knead flour, add chopped crab and portioned soup. Fold once and then cook. Plate, and then serve." }        };
+            { Locale.English, "Knead flour (or add water) to create dough, add chopped crab and portioned XLB soup (meat soup add ice). Fold once and then cook. Plate, and serve." }        };
         public override List<(Locale, UnlockInfo)> InfoList => new()
         {
-            (Locale.English, LocalisationUtils.CreateUnlockInfo("Crab XLB", "Adds Crab XLB as a main dish", "Give me that crab!"))
+            (Locale.English, LocalisationUtils.CreateUnlockInfo("Crab XLB", "Adds Crab XLB as a main dish", "Give me some crab!"))
         };
         public override HashSet<Process> RequiredProcesses => new()
         {
