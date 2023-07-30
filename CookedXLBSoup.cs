@@ -9,7 +9,8 @@
 
         public override int SplitCount => 7;
         public override Item SplitSubItem => GetCastedGDO<Item, PortionedXLBSoup>();
-        public override List<Item> SplitDepletedItems => new() { GetGDO<Item>(ItemReferences.Pot) };
+        public override List<Item> SplitDepletedItems => new() { GetGDO<Item>(ItemReferences.SoupDepleted) };
+        public override Item DisposesTo => GetGDO<Item>(ItemReferences.Pot);
         public override float SplitSpeed => 1.5f;
 
 /*        public override List<Item.ItemProcess> Processes => new()

@@ -35,7 +35,7 @@ namespace KitchenXLB.Mains
         };
         public override HashSet<Item> MinimumIngredients => new()
         {
-            GetGDO<Item>(ItemReferences.Plate),
+           /* GetGDO<Item>(ItemReferences.Plate),*/
             GetGDO<Item>(ItemReferences.Flour),
             GetGDO<Item>(ItemReferences.Meat),
             GetGDO<Item>(ItemReferences.Pot),

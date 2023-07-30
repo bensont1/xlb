@@ -9,6 +9,7 @@ namespace KitchenXLB.Mains
         public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("uncooked_xlb_soup");
         public override ItemStorage ItemStorageFlags => ItemStorage.Small;
         public override ItemCategory ItemCategory => ItemCategory.Generic;
+        public override Item DisposesTo => GetGDO<Item>(ItemReferences.Pot);
         public override List<Item.ItemProcess> Processes => new()
         {
             new()
