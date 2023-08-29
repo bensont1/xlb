@@ -1,4 +1,6 @@
-﻿namespace KitchenXLB.Appliances
+﻿using KitchenXLB.Processes;
+
+namespace KitchenXLB.Appliances
 {
     public class CrabProvider : CustomAppliance
     {
@@ -20,6 +22,17 @@
         public override RarityTier RarityTier => RarityTier.Common;
         public override ShoppingTags ShoppingTags => ShoppingTags.Cooking;
         public override bool SellOnlyAsDuplicate => true;
+
+        public override List<Appliance.ApplianceProcesses> Processes => new List<Appliance.ApplianceProcesses>
+        {
+            new Appliance.ApplianceProcesses
+            {
+                Process = GetCastedGDO<Process, CrabProviderProcess>(),
+                IsAutomatic = true,
+                Speed = 1.0f,
+                Validity = ProcessValidity.Generic
+            }
+        };
 
         public override List<IApplianceProperty> Properties => new()
         {

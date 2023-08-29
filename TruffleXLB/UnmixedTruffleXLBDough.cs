@@ -23,7 +23,7 @@ namespace KitchenXLB.Mains
             new()
             {
                 Item = GetGDO<Item>(ItemReferences.MushroomChopped),
-                Text = "Cc"
+                Text = "Mc"
             },
             new()
             {

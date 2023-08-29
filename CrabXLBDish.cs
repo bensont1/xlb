@@ -1,5 +1,6 @@
 ﻿using IngredientLib.Ingredient.Items;
 using KitchenXLB.Appliances;
+using KitchenXLB.Processes;
 
 namespace KitchenXLB.Mains
 {
@@ -26,11 +27,12 @@ namespace KitchenXLB.Mains
         };
         public override HashSet<Process> RequiredProcesses => new()
         {
-            GetGDO<Process>(ProcessReferences.Cook)
+            GetGDO<Process>(ProcessReferences.Cook),
+            GetCastedGDO<Process, CrabProviderProcess>(),
         };
         public override HashSet<Item> MinimumIngredients => new()
         {
-            GetGDO<Item>(ItemReferences.CrabRaw)
+           GetGDO<Item>(ItemReferences.Flour)
         };
 
         public override List<Dish.MenuItem> ResultingMenuItems => new()
@@ -43,14 +45,14 @@ namespace KitchenXLB.Mains
                 Weight = 1
             }
         };
-        public override HashSet<Dish.IngredientUnlock> IngredientsUnlocks => new()
+      /*  public override HashSet<Dish.IngredientUnlock> IngredientsUnlocks => new()
         {
             new()
             {
                 MenuItem = GetCastedGDO<ItemGroup, PlatedCrabXLB>(),
                 Ingredient = GetGDO<Item>(ItemReferences.CrabRaw)
             },
-        };
+        };*/
 
 
     }
